@@ -9,10 +9,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('<h1>Hello, Developers! Sejam bem-vindos(as) ao TypeScript com Express.Js!</h1>')
+  res.send('<h1>Olá, Reimberg! Seja bem-vindo ao TypeScript com Express.Js!</h1>')
 })
 
 app.listen(PORT, () => console.log(`Servidor executando na porta ${PORT}`));
