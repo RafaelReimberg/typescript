@@ -17,7 +17,7 @@ export const create = async (
 ): Promise<void> => {
   try {
     // Implementação do middleware
-    res.status(200).json({ message: 'Autenticacao com sucesso' })
+    res.status(200).json({ message: 'Autenticação com sucesso' })
   } catch (error) {
     next(error) // Encaminha o erro para o middleware de tratamento de erros
   }
