@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import jwt from 'jsonwebtoken'
 
 import AuthError from '@app/Auth/exceptions/AuthError'

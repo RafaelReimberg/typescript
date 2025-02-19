@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Router } from 'express'
 
 import { create } from '@app/Auth/controllers/AuthController'
