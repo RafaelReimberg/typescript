@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 
 // class AuthController {
-//   async create( req: Request, res: Response ): Promise<Response> {
+//   async create(req: Request, res: Response): Promise<Response> {
 //     return res.status(200).json({ message: 'Autenticacao com sucesso' })
 //   }
 
