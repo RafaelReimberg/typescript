@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import express, { Application } from 'express'
 import cors from 'cors'
 import routes from '@/routes'
