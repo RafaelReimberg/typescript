@@ -5,7 +5,7 @@ import config from '@/config'
 
 export default class AuthService {
 
-  async signIn(email: string, password: string): Promise<{ user: object; token: string }> {
+  async signIn(email: string, password: string): Promise<{ user: object, token: string }> {
     const user = {
       id: '123',
       email: 'admin@admin.com',
