@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 import jwt from 'jsonwebtoken'
-
 import AuthError from '@app/Auth/exceptions/AuthError'
+import config from '@/config'
 
 export default class AuthService {
-  async signIn(email: string, password: string): Promise<void> {
+
+  async signIn(email: string, password: string): Promise<{ user: object; token: string }> {
     const user = {
       id: '123',
       email: 'admin@admin.com',
@@ -19,8 +20,17 @@ export default class AuthService {
     const { id, fullName } = user
 
     // Geneater token
-    const token = jwt.sign({ id,}, process.env.JWT_SECRET, {
-      expiresIn: '1d',
+    const token = jwt.sign({ id }, config.auth.secret, {
+      expiresIn: config.auth.expiresIn,
     })
+
+    return {
+      user: {
+        id,
+        fullName,
+        email,
+      },
+      token,
+    }
   }
 }
