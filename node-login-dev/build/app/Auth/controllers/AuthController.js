@@ -8,16 +8,41 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const AuthServices_1 = __importDefault(require("@app/Auth/services/AuthServices"));
+const AuthError_1 = __importDefault(require("@app/Auth/exceptions/AuthError"));
 class AuthController {
-    create(_req, res) {
+    create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return res.status(200).json({ message: 'Autenticacao com sucesso' });
+            const { email, password } = req.body;
+            try {
+                const { user, token } = yield new AuthServices_1.default().signIn(email, password);
+                return res.status(200).json({ user, token });
+            }
+            catch (error) {
+                if (error instanceof AuthError_1.default)
+                    return res.status(401).send();
+                return res.status(500).json({ error });
+            }
         });
     }
     destroy() {
-        return __awaiter(this, void 0, void 0, function* () {
-        });
+        return __awaiter(this, void 0, void 0, function* () { });
     }
 }
 exports.default = new AuthController();
+// export const create = async (
+//   req: Request,
+//   res: Response,
+//   next: NextFunction,
+// ): Promise<void> => {
+//   try {
+//     // Implementação do middleware
+//     res.status(200).json({ message: 'Autenticação com sucesso, burrão' })
+//   } catch (error) {
+//     next(error) // Encaminha o erro para o middleware de tratamento de erros
+//   }
+// }
