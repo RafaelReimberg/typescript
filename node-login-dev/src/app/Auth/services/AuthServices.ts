@@ -21,9 +21,9 @@ export default class AuthService {
     const { id, fullName } = user
 
     // Geneater token
-    const token = jwt.sign({ id }, config.auth.secret as Secret, {
-      expiresIn: config.auth.expiresIn,
-    } as SignOptions)
+    const token = jwt.sign({ id },
+      config.auth.secret as Secret,
+      { expiresIn: config.auth.expiresIn } as SignOptions)
 
     return {
       user: {
