@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import jwt from 'jsonwebtoken'
+import jwt, { Secret, SignOptions } from 'jsonwebtoken'
 import AuthError from '@app/Auth/exceptions/AuthError'
 import config from '@/config'
+
 
 export default class AuthService {
 
@@ -20,9 +21,9 @@ export default class AuthService {
     const { id, fullName } = user
 
     // Geneater token
-    const token = jwt.sign({ id }, config.auth.secret, {
+    const token = jwt.sign({ id }, config.auth.secret as Secret, {
       expiresIn: config.auth.expiresIn,
-    })
+    } as SignOptions)
 
     return {
       user: {
