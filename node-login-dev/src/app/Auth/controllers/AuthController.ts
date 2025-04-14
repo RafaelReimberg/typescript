@@ -22,16 +22,3 @@ class AuthController {
 }
 
 export default new AuthController()
-
-// export const create = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction,
-// ): Promise<void> => {
-//   try {
-//     // Implementação do middleware
-//     res.status(200).json({ message: 'Autenticação com sucesso, burrão' })
-//   } catch (error) {
-//     next(error) // Encaminha o erro para o middleware de tratamento de erros
-//   }
-// }
