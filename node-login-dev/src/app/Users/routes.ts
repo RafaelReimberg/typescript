@@ -3,7 +3,6 @@ import { Router } from 'express'
 
 import users from '@app/Users/controllers/UsersController'
 
-
 const routes = Router()
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
