@@ -14,6 +14,16 @@ export default class AuthService {
       fullName: 'Admin',
     }
 
+    // verificar se o token está banido
+    // if (await TokenService.isTokenBanned(token)) {
+    //   throw new AuthError('Token is banned')
+
+
+    // }
+
+    // stop video 01:05:24
+
+
     if (email !== user.email || password !== user.password) {
       throw new AuthError('Invalid credentials')
     }
@@ -32,6 +42,20 @@ export default class AuthService {
         email,
       },
       token,
+    }
+  }
+
+  async validatetoken(token: string): Promise<string> {
+    try {
+      const decoded = jwt.verify(token, config.auth.secret as Secret) as {
+        id: string
+      }
+
+      return decoded.id
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      throw new AuthError('Invalid token')
     }
   }
 }

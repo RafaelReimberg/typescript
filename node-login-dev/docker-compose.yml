@@ -1,0 +1,14 @@
+version: 'version: "3.8"
+services:
+  redis:
+    image: redis:6
+    restart: always
+    volumes:
+      - redis_data:/data
+    ports:
+      - 6379:6379
+
+volumes:
+  redis_data:
+
+
