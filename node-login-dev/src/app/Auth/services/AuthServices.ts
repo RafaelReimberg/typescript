@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import jwt, { Secret, SignOptions } from 'jsonwebtoken'
 import AuthError from '@app/Auth/exceptions/AuthError'
+import { getValue, setValue } from 'lib/redis'
 import config from '@/config'
 
 
@@ -13,16 +14,6 @@ export default class AuthService {
       password: 'secret',
       fullName: 'Admin',
     }
-
-    // verificar se o token está banido
-    // if (await TokenService.isTokenBanned(token)) {
-    //   throw new AuthError('Token is banned')
-
-
-    // }
-
-    // stop video 01:05:24
-
 
     if (email !== user.email || password !== user.password) {
       throw new AuthError('Invalid credentials')
@@ -45,8 +36,15 @@ export default class AuthService {
     }
   }
 
+  async signOut(token: string): Promise<void> {
+    await this.blacklistToken(token)
+  }
+
   async validatetoken(token: string): Promise<string> {
     try {
+      if(await this.isTokenBlacklisted(token))
+        throw new AuthError('Token was blacklisted')
+
       const decoded = jwt.verify(token, config.auth.secret as Secret) as {
         id: string
       }
@@ -57,5 +55,15 @@ export default class AuthService {
     } catch (error) {
       throw new AuthError('Invalid token')
     }
+  }
+
+  private async isTokenBlacklisted(token: string): Promise<boolean> {
+    const blacklistedToken = await getValue(`tokens:invalidated:${token}`)
+
+    return !!blacklistedToken
+  }
+
+  private async blacklistToken(token: string): Promise<void> {
+    await setValue(`tokens:invalidated:${token}`, 'true')
   }
 }

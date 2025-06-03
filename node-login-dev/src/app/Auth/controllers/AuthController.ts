@@ -18,7 +18,12 @@ class AuthController {
     }
   }
 
-  async destroy() {}
+  async destroy(req: Request, res: Response): Promise<Response> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    req.user.id && new AuthService().signOut(req.user.token)
+
+    return res.status(204).send()
+  }
 }
 
 export default new AuthController()

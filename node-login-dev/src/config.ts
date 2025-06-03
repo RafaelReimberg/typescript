@@ -5,10 +5,11 @@ dotenv.config()
 
 export default {
   port: Number(process.env.PORT) || 3000,
-  auth: {
+  redis:{
+    url: process.env.REDIS_URL || 'redis://localhost:6379',
+  },
+auth: {
     secret: process.env.AUTH_SECRET || 'secret',
     expiresIn: process.env.AUTH_EXPIRES_IN || '7d',
   },
 }
-
-// video stop 36:01
