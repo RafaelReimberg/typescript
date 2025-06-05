@@ -1,12 +1,5 @@
 // midlewares express (bases)
 import { Request, Response, NextFunction } from 'express'
-// midleware de autenticacao
-// function( req, res, next) {
-//  logica
-//  next()
-// }
-// midleware de aplicacao
-
 import AuthService from '@app/Auth/services/AuthServices'
 import AuthError from '@app/Auth/exceptions/AuthError'
 
