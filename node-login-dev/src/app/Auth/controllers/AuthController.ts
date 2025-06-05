@@ -3,6 +3,7 @@ import { Request, Response } from 'express'
 import AuthService from '@app/Auth/services/AuthServices'
 import AuthError from '@app/Auth/exceptions/AuthError'
 
+
 class AuthController {
   async create(req: Request, res: Response): Promise<Response> {
     const { email, password } = req.body
@@ -19,6 +20,7 @@ class AuthController {
   }
 
   async destroy(req: Request, res: Response): Promise<Response> {
+
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     req.user.id && new AuthService().signOut(req.user.token)
 
