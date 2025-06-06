@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // midlewares express (bases)
 import { Request, Response, NextFunction } from 'express'
 import AuthService from '@app/Auth/services/AuthServices'
@@ -12,8 +13,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   // Authorization: Bearer <token>
   const [, token] = authHeader.split(' ')
 
-  // if (token !== '123456')
-  //   return res.status(401).json({ error: 'Token not provided' })
   try {
     // verificar se o token é valido
     const id = await new AuthService().validatetoken(token)
