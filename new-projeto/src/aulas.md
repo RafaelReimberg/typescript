@@ -1,11 +1,3 @@
-Posso continuar agora com o tópico:
-"Percorrer Arrays com for...of e forEach – maneiras modernas de leitura"
-
-Quer que eu siga?
-
-
-
-
 <!-- // Aulas de TypeScript -->
 
 tabuada de multiplicação
@@ -78,3 +70,32 @@ console.log(frutas);
 
 frutas[1] = "Morango";
 console.log("Frutas após substituir Banana por Morango: " + frutas);
+
+
+const numeros: number[] = [10, 15, 20, 25, 30];
+
+for(let numero of numeros) {
+    console.log(`Numero encontrado é ${numero}`);
+}
+
+
+const nomes: string[] = ["Rafael", "Natalia", "Gabriel", "Luíza"];
+
+nomes.forEach((nome, indice) => {
+    console.log(`Nome encontrado na posicao ${indice}: ${nome}`);
+});
+
+
+const numeros: number[] = [2, 4, 6, 8, 10];
+
+const numerosDobrados: number[] = numeros.map((num: number): number => {
+    return num * 2
+});
+
+console.log(numerosDobrados);
+
+const numerosAcimaDe6: number[] = numeros.filter((num: number): boolean =>{
+    return num > 6
+})
+
+console.log(numerosAcimaDe6)
