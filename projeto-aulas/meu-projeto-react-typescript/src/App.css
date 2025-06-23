@@ -1,10 +1,23 @@
+
+
 .App {
   font-family: Arial, sans-serif;
   margin: 20px;
 }
 
-h1 {
+h1{
   color: #007acc;
+  text-align: center;
+}
+
+.apresentacao {
+  font-size: 1.4em;
+  color: #555;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
 }
 
 ul {
@@ -13,8 +26,17 @@ ul {
 }
 
 li {
+  text-align: center;
   background-color: #f0f8ff;
   margin: 5px 0;
   padding: 10px;
   border-radius: 4px;
+}
+
+.key{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: bold;
+  color: #333;
 }
