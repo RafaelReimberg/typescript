@@ -99,3 +99,9 @@ const numerosAcimaDe6: number[] = numeros.filter((num: number): boolean =>{
 })
 
 console.log(numerosAcimaDe6)
+
+
+Seção 5 – Polimorfismo
+✅ Polimorfismo por sobrescrita de métodos
+
+✅ Exemplo de polimorfismo com classes de animais
