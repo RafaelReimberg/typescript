@@ -43,7 +43,7 @@ const funcionario = document.getElementById('funcionarios');
 
 if (funcionario) {
   funcionario.innerHTML = `
-    <h2>Gerente</h2>
+    <h2 class="cargo">Gerente</h2>
     <table>
       <tr>
         <th>Nome</th>
