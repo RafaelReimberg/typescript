@@ -42,12 +42,16 @@ var Gerente = /** @class */ (function (_super) {
     };
     return Gerente;
 }(Funcionario));
-var gerente = new Gerente("Rafael", 38, 8000, "RA19061987", 2020);
+var gerente = new Gerente('Natalia', 33, 12000, 'RA12345', 2016);
 gerente.trabalhando();
 gerente.ordem();
 gerente.receberSalario();
 gerente.registrar();
 var funcionario = document.getElementById('funcionarios');
 if (funcionario) {
-    funcionario.innerHTML = "\n    <h2>Gerente</h2>\n    <table>\n      <tr>\n        <th>Nome</th>\n        <th>Idade</th>\n        <th>Sal\u00E1rio</th>\n        <th>Registro</th>\n        <th>Admiss\u00E3o</th>\n      </tr>\n      <tr>\n        <td>".concat(gerente.nome, "</td>\n        <td>").concat(gerente.idade, "</td>\n        <td>R$").concat(gerente.salario, "</td>\n        <td>").concat(gerente.registro, "</td>\n        <td>").concat(gerente.adimissao, "</td>\n      </tr>\n    </table>\n  ");
+    funcionario.innerHTML = "\n    <h2>Funcion\u00E1rios</h2>\n    <table>\n      <tr>\n        <th>Nome</th>\n        <th>Idade</th>\n        <th>Sal\u00E1rio</th>\n        <th>Registro</th>\n        <th>Admiss\u00E3o</th>\n      </tr>\n      <tr>\n        <td>".concat(gerente.nome, "</td>\n        <td>").concat(gerente.idade, "</td>\n        <td>R$").concat(gerente.salario, "</td>\n        <td>").concat(gerente.registro, "</td>\n        <td>").concat(gerente.adimissao, "</td>\n      </tr>\n    </table>\n  ");
+}
+var gerenteInfo = document.getElementById('gerente');
+if (gerenteInfo) {
+    gerenteInfo.innerHTML = "\n    ordem(".concat(gerente.ordem(), ")\n  ");
 }

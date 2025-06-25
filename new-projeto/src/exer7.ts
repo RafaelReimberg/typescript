@@ -32,7 +32,8 @@ class Gerente extends Funcionario {
   }
 }
 
-const gerente = new Gerente("Rafael", 38, 8000, "RA19061987", 2020);
+const gerente = new Gerente('Natalia', 33, 12000, 'RA12345', 2016);
+
 gerente.trabalhando();
 gerente.ordem();
 gerente.receberSalario();
@@ -40,10 +41,9 @@ gerente.registrar();
 
 
 const funcionario = document.getElementById('funcionarios');
-
-if (funcionario) {
-  funcionario.innerHTML = `
-    <h2 class="cargo">Gerente</h2>
+  if (funcionario) {
+    funcionario.innerHTML = `
+    <h2>Funcionários</h2>
     <table>
       <tr>
         <th>Nome</th>
