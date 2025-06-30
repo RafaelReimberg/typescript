@@ -1,7 +1,6 @@
 class Endereco {
   lougradouro: string;
 
-
   constructor(lougradouro: string) {
     this.lougradouro = lougradouro;
   }
