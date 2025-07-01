@@ -1,9 +1,9 @@
-interface Animal{
+interface Animal1 {
   nome: string;
   falar(): void;
 }
 
-class Cachorro implements Animal {
+class Cachorro1 implements Animal1 {
   nome: string;
 
   constructor(nome: string) {
@@ -15,5 +15,5 @@ class Cachorro implements Animal {
   }
 }
 
-const meuCachorro = new Cachorro("Grilo");
-meuCachorro.falar();
+const meuCachorro1 = new Cachorro1("Grilo");
+meuCachorro1.falar();
