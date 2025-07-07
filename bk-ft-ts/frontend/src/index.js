@@ -1,4 +1,3 @@
-// frontend/src/index.ts
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,24 +34,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var usuarioVisivel = false;
 function carregarUsuarios() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, usuarios, lista;
+        var lista, response, usuarios;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch("http://localhost:3000/usuarios")];
+                case 0:
+                    lista = document.getElementById("lista-usuarios");
+                    if (usuarioVisivel) {
+                        lista.innerHTML = "";
+                        usuarioVisivel = false;
+                        return [2 /*return*/];
+                    }
+                    return [4 /*yield*/, fetch("http://localhost:3000/usuarios")];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
                 case 2:
                     usuarios = _a.sent();
-                    lista = document.getElementById("lista-usuarios");
                     lista.innerHTML = "";
                     usuarios.forEach(function (usuario) {
                         var li = document.createElement("li");
                         li.textContent = "".concat(usuario.id, " - Nome: ").concat(usuario.nome, " - Idade: ").concat(usuario.idade);
                         lista.appendChild(li);
                     });
+                    usuarioVisivel = true;
                     return [2 /*return*/];
             }
         });
@@ -61,3 +68,41 @@ function carregarUsuarios() {
 document.getElementById("btn-carregar").addEventListener("click", function () {
     carregarUsuarios();
 });
+var carroVisivel = false;
+function carregarCarros() {
+    return __awaiter(this, void 0, void 0, function () {
+        var lista, response, carros;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    lista = document.getElementById("lista-carros");
+                    if (carroVisivel) {
+                        lista.innerHTML = "";
+                        carroVisivel = false;
+                        return [2 /*return*/];
+                    }
+                    return [4 /*yield*/, fetch("http://localhost:3000/carros")];
+                case 1:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    carros = _a.sent();
+                    lista.innerHTML = "";
+                    carros.forEach(function (carro) {
+                        var li = document.createElement("li");
+                        li.textContent = "".concat(carro.id, " - Modelo: ").concat(carro.modelo, " - Ano: ").concat(carro.ano);
+                        lista.appendChild(li);
+                    });
+                    carroVisivel = true;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+document.getElementById("btn-carregar-carros").addEventListener("click", function () {
+    carregarCarros();
+});
+// document.addEventListener("DOMContentLoaded", () => {
+//   carregarUsuarios();
+//   carregarCarros();
+// });
