@@ -14,7 +14,7 @@ const usuarios = [
   { id: 2, nome: "Natalia", idade: 33},
   { id: 3, nome: "Gabriel", idade: 7},
   { id: 4, nome: "Luíza", idade: 4},
-];
+]; 
 
 // Endpoint GET /usuarios
 app.get("/usuarios", (req, res) => {
