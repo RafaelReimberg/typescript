@@ -1,4 +1,4 @@
-abstract class Veiculo {
+abstract class Veiculo1 {
   protected marca: string;
   protected modelo: string;
   protected ano: number;
@@ -16,31 +16,20 @@ abstract class Veiculo {
   abstract calcularIdade(): number;
 }
 
-
-class Carro extends Veiculo {
+class Carro1 extends Veiculo1 {
   calcularIdade(): number {
     return new Date().getFullYear() - this.ano;
   }
 }
 
-class Moto extends Veiculo {
+class Moto1 extends Veiculo1 {
   calcularIdade(): number {
     let idade = new Date().getFullYear() - this.ano;
     return this.marca === "Honda" ? idade - 1 : idade;
   }
 }
 
-
-const carro = new Carro("Toyota", "Corolla", 2015);
-carro.exibirInfo();
-console.log(`Idade do carro: ${carro.calcularIdade()} anos`);
-
-const moto = new Moto("Honda", "CB500", 2018);
-moto.exibirInfo();
-console.log(`Idade da moto: ${moto.calcularIdade()} anos`);
-
-
-class Caminhao extends Veiculo {
+class Caminhao1 extends Veiculo1 {
   pesoToneladas: number;
 
   constructor(marca: string, modelo: string, ano: number, pesoToneladas: number) {
@@ -52,12 +41,21 @@ class Caminhao extends Veiculo {
     super.exibirInfo();
     console.log(`Peso: ${this.pesoToneladas} toneladas`);
   }
+
   calcularIdade(): number {
     const idade = new Date().getFullYear() - this.ano;
     return this.pesoToneladas > 10 ? idade - 2 : idade;
   }
 }
 
-const caminhao = new Caminhao("Volvo", "FH 540", 2015, 12);
-caminhao.exibirInfo();
-console.log(`Idade do caminhão: ${caminhao.calcularIdade()} anos`);
+const veiculos: Veiculo1[] = [
+  new Carro1("Fiat", "Uno", 2015),
+  new Moto1("Honda", "CG 160", 2020),
+  new Caminhao1("Volvo", "FH 540", 2018, 14)
+];
+
+for (const v of veiculos) {
+  v.exibirInfo();
+  console.log(`Idade: ${v.calcularIdade()} anos`);
+  console.log("-------------");
+}
