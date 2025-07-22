@@ -4,12 +4,18 @@
   "description": "Reimberg api desenvolvida em nodejs com mongodb",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rafael Reimberg",
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
-    "mongoose": "^8.9.3"
-  }
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.4"
+  },
+  "keywords": [],
+  "type": "commonjs"
 }
