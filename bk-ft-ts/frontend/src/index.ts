@@ -32,7 +32,7 @@ async function carregarUsuarios() {
 
   usuarios.forEach((usuario) => {
     const li = document.createElement("li");
-    li.textContent = `${usuario.id} - Nome: ${usuario.nome} - Idade: ${usuario.idade}`;
+    li.innerHTML = `ID: <strong>${usuario.id}</strong> - Nome: <strong>${usuario.nome}</strong> - Idade: <strong>${usuario.idade}</strong>`;
     lista.appendChild(li);
   });
 

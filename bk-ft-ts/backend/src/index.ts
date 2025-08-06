@@ -17,11 +17,23 @@ app.use(cors());
 // Esses arrays contêm objetos com propriedades como id, nome, idade, modelo e ano
 // Esses dados serão retornados quando o frontend fizer requisições para os endpoints definidos abaixo
 const usuarios = [
-  { id: 1, nome: "Rafael",  idade: 38 },
-  { id: 2, nome: "Natalia", idade: 33 },
-  { id: 3, nome: "Gabriel", idade: 7  },
-  { id: 4, nome: "Luíza",   idade: 4  },
-]; 
+  { id: 1,
+    nome: "Rafael",
+    idade: 38
+  },
+  { id: 2,
+    nome: "Natalia",
+    idade: 33
+  },
+  { id: 3,
+    nome: "Gabriel",
+    idade: 7
+  },
+  { id: 4,
+    nome: "Luíza",
+    idade: 4
+  },
+];
 
 const carros = [
   { id: 1, modelo: "Fit",   ano: 2008 },

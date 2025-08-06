@@ -1,3 +1,11 @@
+/* Example selector for the block, replace '.scrollable' with your actual class or element */
+.scrollable {
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -67,7 +75,7 @@ header {
         }
       }
     }
-  }      
+  }
 }
 
 section{
@@ -104,6 +112,16 @@ h1 {
   padding: 0;
 }
 
+#lista-usuarios {
+  font-family: "Google Sans Code", monospace;
+  margin-top: 20px;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -114,7 +132,3 @@ li{
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
-
-
-
-

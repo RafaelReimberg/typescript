@@ -1,3 +1,4 @@
+// frontend/src/index.ts
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,7 +35,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+// Variável para controlar a visibilidade da lista de usuários
+// Inicialmente, a lista não está visível
 var usuarioVisivel = false;
+// Função para carregar usuários do backend
+// Esta função faz uma requisição para o backend para obter a lista de usuários
 function carregarUsuarios() {
     return __awaiter(this, void 0, void 0, function () {
         var lista, response, usuarios;
@@ -42,6 +47,8 @@ function carregarUsuarios() {
             switch (_a.label) {
                 case 0:
                     lista = document.getElementById("lista-usuarios");
+                    // Se a lista já está visível, esvaziamos o conteúdo e definimos usuarioVisivel como false
+                    // Isso permite que o usuário possa alternar a visibilidade da lista
                     if (usuarioVisivel) {
                         lista.innerHTML = "";
                         usuarioVisivel = false;
@@ -56,7 +63,7 @@ function carregarUsuarios() {
                     lista.innerHTML = "";
                     usuarios.forEach(function (usuario) {
                         var li = document.createElement("li");
-                        li.textContent = "".concat(usuario.id, " - Nome: ").concat(usuario.nome, " - Idade: ").concat(usuario.idade);
+                        li.innerHTML = "ID: <strong>".concat(usuario.id, "</strong> - Nome: <strong>").concat(usuario.nome, "</strong> - Idade: <strong>").concat(usuario.idade, "</strong>");
                         lista.appendChild(li);
                     });
                     usuarioVisivel = true;
@@ -65,6 +72,8 @@ function carregarUsuarios() {
         });
     });
 }
+// Adiciona um evento de clique ao botão "Carregar Usuários"
+// Quando o botão é clicado, a função carregarUsuarios é chamada
 document.getElementById("btn-carregar").addEventListener("click", function () {
     carregarUsuarios();
 });
