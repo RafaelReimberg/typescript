@@ -58,6 +58,11 @@ form.addEventListener("submit", function (e) { return __awaiter(_this, void 0, v
             case 3:
                 dados = _a.sent();
                 alert(dados.message);
+                // if (dados && dados.message) {
+                // dados.addEventListener("click", () => {
+                //   alert(dados.message && resposta.ok ? "Formulário enviado com sucesso!" : "Erro ao enviar formulário.");
+                // }); 
+                // }
                 form.reset();
                 return [3 /*break*/, 5];
             case 4:

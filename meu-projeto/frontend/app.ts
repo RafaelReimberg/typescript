@@ -13,7 +13,12 @@ form.addEventListener("submit", async (e) => {
     });
 
     const dados = await resposta.json();
-    alert(dados.message);
+      alert(dados.message);
+      // if (dados && dados.message) {
+      // dados.addEventListener("click", () => {
+      //   alert(dados.message && resposta.ok ? "Formulário enviado com sucesso!" : "Erro ao enviar formulário.");
+      // }); 
+      // }
 
     form.reset();
   } catch (error) {
