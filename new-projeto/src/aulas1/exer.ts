@@ -1,18 +1,18 @@
-let nomes: string[] = ["Lucas", "Mariana", "Pedro",];
+let listaNomes: string[] = ["Lucas", "Mariana", "Pedro",];
 
 // Adicionando um novo nome no array
-nomes.push("Fernanda");
-console.log("Nome adicionado no final do array: " + nomes);
+listaNomes.push("Fernanda");
+console.log("Nome adicionado no final do array: " + listaNomes);
 
 // Removendo o último nome do array
-nomes.pop();
-console.log("Último nome removido do array: " + nomes);
+listaNomes.pop();
+console.log("Último nome removido do array: " + listaNomes);
 
 // Adicionando um nome no início do array
-nomes.unshift("Gabriel");
-console.log("Nome adicionado no início do array: " + nomes);
+listaNomes.unshift("Gabriel");
+console.log("Nome adicionado no início do array: " + listaNomes);
 
 // Exibindo todos os nomes presentes no array
-for (let i: number = 0; i < nomes.length; i++) {
-    console.log(`O nome é ${nomes[i]}`);
+for (let i: number = 0; i < listaNomes.length; i++) {
+    console.log(`O nome é ${listaNomes[i]}`);
 }
