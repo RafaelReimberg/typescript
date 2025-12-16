@@ -1,5 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 20px;
   background: #f4f4f4;
 }
@@ -14,6 +20,11 @@ body {
 
 h1 {
   text-align: center;
+  color: #333;
+}
+
+.title {
+  font-family: "Momo Trust Display", sans-serif;
   color: #333;
 }
 
